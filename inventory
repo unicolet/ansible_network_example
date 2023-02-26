@@ -1,0 +1,5 @@
+[hosts:vars]
+ansible_network_os=unicolet
+
+[hosts]
+unicolet ansible_host=localhost
