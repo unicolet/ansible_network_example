@@ -1,5 +1,6 @@
 [hosts:vars]
 ansible_network_os=unicolet
+ansible_connection=ansible.netcommon.httpapi
 
 [hosts]
-unicolet ansible_host=localhost
+unicolet ansible_host=localhost ansible_port=8080
