@@ -19,10 +19,12 @@ version_added: 1.0.0
 def verify_reachability(module):
     logging.debug("running verify_reachability")
     connection = Connection(module._socket_path)
-    connection.get_device_info()
-    module.fail_json(
-        msg="Not implemented yet."
-    )
+    result = connection.get_device_info()
+    logging.debug(result)
+    return {"changed": False}
+    # module.fail_json(
+    #     msg="Not implemented yet."
+    # )
 
 
 def main():

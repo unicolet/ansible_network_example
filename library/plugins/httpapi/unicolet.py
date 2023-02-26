@@ -2,7 +2,7 @@
 from __future__ import absolute_import, division, print_function
 from ansible_collections.ansible.netcommon.plugins.plugin_utils.httpapi_base import HttpApiBase
 import json, logging
-logging.basicConfig(filename='unicolet.log', filemode='w', level=logging.DEBUG)
+logging.basicConfig(filename='unicolet.log', filemode='a', level=logging.DEBUG)
 
 
 __metaclass__ = type
@@ -17,7 +17,7 @@ version_added: 1.0.0
 
 class HttpApi(HttpApiBase):
     def __init__(self, *args, **kwargs):
-        logging.debug("loaded httpapi {}".format(args))
+        logging.debug("loaded httpapi")
         super(HttpApi, self).__init__(*args, **kwargs)
         self._device_info = None
     
@@ -51,7 +51,7 @@ class HttpApi(HttpApiBase):
             self.connection._auth = {'X-api-token': response['token']}
         except KeyError:
             raise AnsibleAuthenticationFailure(message="Failed to acquire login token.")
-    
+
     def get_device_info(self):
         logging.debug("get_device_info")
         if self._device_info:
