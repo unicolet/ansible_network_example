@@ -1,6 +1,5 @@
 #!/usr/bin/python
 from __future__ import absolute_import, division, print_function
-import logging
 from ansible_collections.ansible.netcommon.plugins.plugin_utils.httpapi_base import HttpApiBase
 import json
 
@@ -14,11 +13,8 @@ description: just playing around with ansible network plugins
 version_added: 1.0.0
 """
 
-logging.basicConfig(filename='/tmp/unicolet.log', filemode='a', level=logging.DEBUG)
-
 class HttpApi(HttpApiBase):
     def __init__(self, *args, **kwargs):
-        logging.debug("loaded httpapi")
         super(HttpApi, self).__init__(*args, **kwargs)
         self._device_info = None
 
@@ -27,7 +23,6 @@ class HttpApi(HttpApiBase):
         pass
 
     def get_device_info(self):
-        logging.error("get_device_info")
         if self._device_info:
             return self._device_info
         device_info = {}
