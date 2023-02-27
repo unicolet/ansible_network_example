@@ -27,7 +27,7 @@ jobs:
         python -m pip install pipenv
         pipenv install
         pipenv run ansible-galaxy collection install ansible.netcommon:4.1.0
-    - name: Lint with flake8
+    - name: Run ansible module
       run: |
         export ANSIBLE_CONFIG=./ansible.cfg
         pipenv run ansible -i inventory unicolet -m unicolet_ping
