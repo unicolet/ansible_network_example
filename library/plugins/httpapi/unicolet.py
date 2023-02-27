@@ -1,9 +1,8 @@
 #!/usr/bin/python
 from __future__ import absolute_import, division, print_function
+import logging
 from ansible_collections.ansible.netcommon.plugins.plugin_utils.httpapi_base import HttpApiBase
-import json, logging
-logging.basicConfig(filename='unicolet.log', filemode='a', level=logging.DEBUG)
-
+import json
 
 __metaclass__ = type
 
@@ -14,6 +13,8 @@ short_description: fake unicolet platform support
 description: just playing around with ansible network plugins
 version_added: 1.0.0
 """
+
+logging.basicConfig(filename='/tmp/unicolet.log', filemode='a', level=logging.DEBUG)
 
 class HttpApi(HttpApiBase):
     def __init__(self, *args, **kwargs):
@@ -53,7 +54,7 @@ class HttpApi(HttpApiBase):
             raise AnsibleAuthenticationFailure(message="Failed to acquire login token.")
 
     def get_device_info(self):
-        logging.debug("get_device_info")
+        logging.error("get_device_info")
         if self._device_info:
             return self._device_info
         device_info = {}

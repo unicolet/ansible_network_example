@@ -1,9 +1,8 @@
 #!/usr/bin/python
 from __future__ import absolute_import, division, print_function
+import logging
 from ansible.module_utils.basic import AnsibleModule
 from ansible.module_utils.connection import Connection
-import logging
-logging.basicConfig(filename='unicolet_ping.log', filemode='w', level=logging.DEBUG)
 
 __metaclass__ = type
 
@@ -15,6 +14,8 @@ description:
 - Tests reachability
 version_added: 1.0.0
 """
+
+logging.basicConfig(filename='/tmp/unicolet_ping.log', filemode='a', level=logging.DEBUG)
 
 def verify_reachability(module):
     logging.debug("running verify_reachability")
