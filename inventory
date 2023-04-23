@@ -3,4 +3,4 @@ ansible_network_os=unicolet
 ansible_connection=ansible.netcommon.httpapi
 
 [hosts]
-unicolet ansible_host=localhost ansible_port=8080
+unicolet ansible_host="127.0.0.1" ansible_httpapi_port="8080" ansible_httpapi_use_ssl=true

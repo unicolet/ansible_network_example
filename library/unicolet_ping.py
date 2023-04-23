@@ -22,6 +22,7 @@ def verify_reachability(module):
     connection = Connection(module._socket_path)
     result = connection.get_device_info()
     logging.debug(result)
+    logging.debug(connection.get_options())
     return {"changed": False}
     # module.fail_json(
     #     msg="Not implemented yet."
